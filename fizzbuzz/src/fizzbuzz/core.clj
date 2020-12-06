@@ -3,6 +3,7 @@
 
   (defn greet [name] (println (str "Hello!!" name)) )
   ;strは"Hello!"にかかってて、nameは変数なのでいらない・・いらない？
+  ;strは組み込み関数です
   (defn greet2 [name] (println name))
   (defn yeah [] (println "yeah"));引数なくても[]が必要っぽい
   (defn fizzbuzz [n]
@@ -13,7 +14,7 @@
       :else (println n)
     )
   )
-  (defn inc [n] (+ n 1))
+  ; (defn inc [n] (+ n 1))
 
 (defn -main
   "I don't do a whole lot ... yet."
@@ -30,12 +31,21 @@
 
   (loop [i 0]
     (when (< i 101)
-    (fizzbuzz(i))
+    (fizzbuzz i)
+    ; (println "hello")
     (recur (+ i 1))))
-  (loop [x 10]
-    (when (> x 1)
-      (println x)
-      (recur (- x 2))))
+  ; (loop [x 10]
+  ;   (when (> x 1)
+  ;     (println x)
+  ;     (recur (- x 2))))
+
+  (loop [i 0]
+    (when (< i 3)
+    (println (str "hogeee")))
+    (recur (inc i))
+  )
+
+  ; recur (inc i) によるループ文が存在すると、lein runしてもファイルの実行が終わらない
 )
 
 ; $ lein run
