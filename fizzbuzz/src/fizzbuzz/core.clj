@@ -3,7 +3,7 @@
 
   (defn greet [name] (println (str "Hello!!" name)) )
   ;strは"Hello!"にかかってて、nameは変数なのでいらない・・いらない？
-  ;strは組み込み関数です
+  ;strは組み込み関数だった
   (defn greet2 [name] (println name))
   (defn yeah [] (println "yeah"));引数なくても[]が必要っぽい
   (defn fizzbuzz [n]
