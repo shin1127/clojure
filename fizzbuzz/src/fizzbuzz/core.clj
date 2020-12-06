@@ -45,7 +45,7 @@
     (recur (inc i))
   )
 
-  ; recur (inc i) によるループ文が存在すると、lein runしてもファイルの実行が終わらない
+  ; recur (inc i) によるループ文が存在すると、lein runしてもファイルの実行が終わらない..
 )
 
 ; $ lein run
