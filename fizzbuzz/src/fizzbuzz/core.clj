@@ -41,8 +41,8 @@
 
   (loop [i 0]
     (when (< i 3)
-    (println (str "hogeee")))
-    (recur (inc i))
+    (println (str "hogeee"))
+    (recur (inc i))); incはi++みたいな組み込み関数
   )
 )
 
