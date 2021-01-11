@@ -1,55 +1,23 @@
-(ns fizzbuzz.core
-  (:gen-class))
-
-  (defn greet [name] (println (str "Hello!!" name)) )
-  ;strは"Hello!"にかかってて、nameは変数なのでいらない・・いらない？
-  ;strは文字列を連結する組み込み関数だった
-  (defn greet2 [name] (println name))
-  (defn yeah [] (println "yeah"));引数なくても[]が必要っぽい
-  (defn fizzbuzz [n]
-    (cond ; if-if-..みたいな感じではないらしい 上で条件一致したら下は省略される？
-      (= (rem n 15) 0) (println (str "FizzBuzz"))
-      (= (rem n 3) 0) (println (str "Fizz"))
-      (= (rem n 5) 0) (println (str "Buzz"))
-      :else (println n)
-    )
-  )
-  ; (defn inc [n] (+ n 1))
-
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (println "Hello, World!")
-  (println "Hello, Nekochan!")
-  (yeah)
-  (greet "Inutaro")
-  (greet2 "Inujiro")
-  (fizzbuzz 15)
-  (fizzbuzz 5)
-  (fizzbuzz 7)
-  (println (inc 2))
-
-  (loop [i 0]
-    (when (< i 101)
-    (fizzbuzz i)
-    ; (println "hello")
-    (recur (+ i 1))))
-  ; (loop [x 10]
-  ;   (when (> x 1)
-  ;     (println x)
-  ;     (recur (- x 2))))
-
-  (loop [i 0]
-    (when (< i 3)
-    (println (str "hogeee"))
-    (recur (inc i))); incはi++みたいな組み込み関数
-  )
-)
-
+ (ns fizzbuzz.core
+   (:gen-class))
+ 
+ (defn fzbz [n]
+   (cond
+     (= 0 (rem n 15)) "FizzBuzz"
+     (= 0 (rem n 3)) "Fizz"
+     (= 0 (rem n 5)) "Buzz"
+     :else n
+   ))
+ 
+ (defn -main
+   "I don't do a whole lot ... yet."
+   [& args]
+   (loop [i 0]
+     (when (< i 101)
+       (print (fzbz i) " ")
+       (recur (inc i))))
+ )
+ 
 ; $ lein run
 ; OpenJDK 64-Bit Server VM warning: Options -Xverify:none and -noverify were deprecated in JDK 13 and will likely be removed in a future release.
-; Hello, World!
-; Hello, Nekochan!
-; yeah
-; Hello!!Inutaro
-; Inujiro
+; FizzBuzz  1  2  Fizz  4  Buzz  Fizz  7  8  Fizz  Buzz  11  Fizz  13  14  FizzBuzz  16  17  Fizz  19  Buzz  Fizz  22  23  Fizz  Buzz  26  Fizz  28  29  FizzBuzz  31  32  Fizz  34  Buzz  Fizz  37  38  Fizz  Buzz  41  Fizz  43  44  FizzBuzz  46  47  Fizz  49  Buzz  Fizz  52  53  Fizz  Buzz  56  Fizz  58  59  FizzBuzz  61  62  Fizz  64  Buzz  Fizz  67  68  Fizz  Buzz  71  Fizz  73  74  FizzBuzz  76  77  Fizz  79  Buzz  Fizz  82  83  Fizz  Buzz  86  Fizz  88  89  FizzBuzz  91  92  Fizz  94  Buzz  Fizz  97  98  Fizz  Buzz  
